@@ -44,9 +44,15 @@ export default function NavBar() {
         })}
       </div>
       <div className="flex space-x-5 pr-12">
-        <Icon icon="ri:instagram-line" width="50" height="50" />
-        <Icon icon="gg:facebook" width="50" height="50" />
-        <Icon icon="iconamoon:email-light" width="50" height="50" />
+        <a className="hover:text-pink-600" href="www.youtube.com">
+          <Icon icon="ri:instagram-line" width="50" height="50" />
+        </a>
+        <a className="hover:text-blue-600">
+          <Icon icon="gg:facebook" width="50" height="50" />
+        </a>
+        <a className="hover:text-lime-500">
+          <Icon icon="iconamoon:email-light" width="50" height="50" />
+        </a>
       </div>
     </div>
   );
