@@ -22,7 +22,7 @@ const navLinks = [
 export default function NavBar() {
   const pathname = usePathname();
   return (
-    <div className="flex items-end justify-between">
+    <div className="flex items-end justify-between w-full absolute z-2 text-white">
       <div
         className={`space-x-6 ml-4 lg:text-5xl mt-8 ml-16 ${khand.className}`}
       >
@@ -43,6 +43,7 @@ export default function NavBar() {
           );
         })}
       </div>
+
       <div className="flex space-x-5 pr-12">
         <a className="hover:text-pink-600" href="www.youtube.com">
           <Icon icon="ri:instagram-line" width="50" height="50" />
