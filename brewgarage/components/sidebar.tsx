@@ -67,9 +67,15 @@ export default function Sidebar({ expanded, setExpanded }: SidebarProps) {
 
       <div className="w-1/2 border-b-1 border-white pb-6" />
 
-      <div className="flex flex-col text-2xl pt-6 ">
-        <div>20 Millford St, East Vic Park</div>
-        <div>0486 035 890</div>
+      <div className="flex flex-col text-xl pt-6">
+        <div className="flex justify-center items-center pb-4">
+          <Icon icon="mdi:location" width="40" height="40" />
+          <div className="pl-2">20 Millford St, East Vic Park</div>
+        </div>
+        <div className="flex items-center">
+          <Icon icon="mingcute:phone-fill" width="40" height="40" />
+          <div className="pl-2">0486 035 890</div>
+        </div>
       </div>
     </div>
   );

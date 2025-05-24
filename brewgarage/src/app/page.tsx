@@ -1,3 +1,10 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Brew Garage",
+  description: "Brew Garage Homepage",
+};
+
 export default function Home() {
   return (
     <div className="w-full absolute z-1">

@@ -24,7 +24,8 @@ const navLinks = [
 
 export default function NavBar() {
   const pathname = usePathname();
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(false);
+
   {
     if (window.innerWidth > 750) {
       return (
