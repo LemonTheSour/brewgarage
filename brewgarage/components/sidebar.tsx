@@ -44,6 +44,7 @@ export default function Sidebar({ expanded, setExpanded }: SidebarProps) {
               className="overflow-hidden transition-all pb-4"
               href={link.href}
               key={link.name}
+              onClick={() => setExpanded()}
             >
               {link.name}
             </Link>
