@@ -28,6 +28,7 @@ export default function NavBar() {
 
   {
     if (window.innerWidth > 750) {
+      // Return desktop size navbar
       return (
         <div className="flex flex-col">
           <Infobar />
@@ -69,6 +70,7 @@ export default function NavBar() {
       );
     } else {
       return (
+        // Return phone sized navbar
         <div className="grid grid-cols-3 grid-rows-1 w-full bg-black h-8 text-white">
           <button
             onClick={() => setExpanded(!expanded)}
