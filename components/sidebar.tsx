@@ -52,7 +52,7 @@ export default function Sidebar({ expanded, setExpanded }: SidebarProps) {
         })}
       </div>
 
-      <div className="w-1/2 border-b-1 border-white pb-6" />
+      <div className="w-4/6 border-b-1 border-white pb-6" />
 
       <div className="flex space-x-8 pt-1 pt-6">
         <a className="hover:text-pink-600" href="www.youtube.com">
@@ -66,7 +66,7 @@ export default function Sidebar({ expanded, setExpanded }: SidebarProps) {
         </a>
       </div>
 
-      <div className="w-1/2 border-b-1 border-white pb-6" />
+      <div className="w-4/6 border-b-1 border-white pb-6" />
 
       <div className="flex flex-col text-xl pt-6">
         <div className="flex justify-center items-center pb-4">

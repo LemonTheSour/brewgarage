@@ -71,7 +71,7 @@ export default function NavBar() {
     } else {
       return (
         // Return phone sized navbar
-        <div className="grid grid-cols-3 grid-rows-1 w-full bg-black h-8 text-white">
+        <div className="grid grid-cols-3 grid-rows-1 w-full bg-black h-8 text-white fixed z-50">
           <button
             onClick={() => setExpanded(!expanded)}
             className="pl-3 grid col-span-1"
