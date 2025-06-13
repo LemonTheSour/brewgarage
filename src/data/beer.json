@@ -1,0 +1,28 @@
+{
+    "title": "BEER",
+    "size1": "Mid 285ml",
+    "size2": "Schooner 425ml",
+    "itemList": [
+        {
+            "itemTitle": "ROCKER IPA",
+            "itemDescription": "Vibrant citrus and pine armoas, robust bitterness and crisp mouthfeel",
+            "itemABV": "ABV 5.2%",
+            "priceSmall": "$6.5",
+            "priceLarge": "$9.5"
+        },
+        {
+            "itemTitle": "ROCKER IPA",
+            "itemDescription": "Vibrant citrus and pine armoas, robust bitterness and crisp mouthfeel",
+            "itemABV": "ABV 5.2%",
+            "priceSmall": "$6.5",
+            "priceLarge": "$9.5"
+        },
+        {
+            "itemTitle": "ROCKER IPA",
+            "itemDescription": "Vibrant citrus and pine armoas, robust bitterness and crisp mouthfeel",
+            "itemABV": "ABV 5.2%",
+            "priceSmall": "$6.5",
+            "priceLarge": "$9.5"
+        }
+    ]
+}
