@@ -1,0 +1,28 @@
+{
+    "title": "WHITE WINE",
+    "size1": "150ml",
+    "size2": "250ml",
+    "itemList": [
+        {
+            "itemTitle": "SAUVINGNON BLANC",
+            "itemDescription": "Hand-picked from the Blackwood Valley. Intensetropical fruit aroma, white peach and freshlime finish.",
+            "itemABV": "ABV 12.5%",
+            "priceSmall": "$11",
+            "priceLarge": "$17"
+        },
+        {
+            "itemTitle": "SAUVINGNON BLANC",
+            "itemDescription": "Hand-picked from the Blackwood Valley. Intensetropical fruit aroma, white peach and freshlime finish.",
+            "itemABV": "ABV 12.5%",
+            "priceSmall": "$11",
+            "priceLarge": "$17"
+        },
+        {
+            "itemTitle": "SAUVINGNON BLANC",
+            "itemDescription": "Hand-picked from the Blackwood Valley. Intensetropical fruit aroma, white peach and freshlime finish.",
+            "itemABV": "ABV 12.5%",
+            "priceSmall": "$11",
+            "priceLarge": "$17"
+        }
+    ]
+}

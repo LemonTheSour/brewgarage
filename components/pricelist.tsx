@@ -12,10 +12,10 @@ export default function Pricelist({ pricelist }: PricelistProps) {
         <h2 className="col-start-1 col-span-3 text-2xl font-bold content-center">
           {pricelist.title}
         </h2>
-        <h2 className="col-span-1 text-center text-sm font-bold">
+        <h2 className="col-span-1 text-center content-center text-sm font-bold">
           {pricelist.size1}
         </h2>
-        <h2 className="col-span-1 text-center text-sm font-bold">
+        <h2 className="col-span-1 text-center content-center text-sm font-bold">
           {pricelist.size2}
         </h2>
 

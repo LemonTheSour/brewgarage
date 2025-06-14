@@ -1,0 +1,28 @@
+{
+    "title": "RED WINE",
+    "size1": "150ml",
+    "size2": "250ml",
+    "itemList": [
+        {
+            "itemTitle": "SHIRAZ MERLOT",
+            "itemDescription": "Aromas of dark berry fruits with pronouceddark cherries and rhubarb. Spicy clove tannins and generous length.",
+            "itemABV": "ABV 13.5%",
+            "priceSmall": "$11",
+            "priceLarge": "$17"
+        },
+        {
+            "itemTitle": "SHIRAZ MERLOT",
+            "itemDescription": "Aromas of dark berry fruits with pronouceddark cherries and rhubarb. Spicy clove tannins and generous length.",
+            "itemABV": "ABV 13.5%",
+            "priceSmall": "$11",
+            "priceLarge": "$17"
+        },
+        {
+            "itemTitle": "SHIRAZ MERLOT",
+            "itemDescription": "Aromas of dark berry fruits with pronouceddark cherries and rhubarb. Spicy clove tannins and generous length.",
+            "itemABV": "ABV 13.5%",
+            "priceSmall": "$11",
+            "priceLarge": "$17"
+        }
+    ]
+}
