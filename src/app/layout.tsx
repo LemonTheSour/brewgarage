@@ -2,6 +2,7 @@
 
 import "./globals.css";
 import dynamic from "next/dynamic";
+import Footer from "../../components/footer";
 
 const DynamicNavbar = dynamic(() => import("../../components/navbar"), {
   ssr: false,
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body>
         <DynamicNavbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

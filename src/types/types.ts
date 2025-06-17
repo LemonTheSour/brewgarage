@@ -18,3 +18,18 @@ export interface Pricecard {
     "priceSmall": string;
     "priceLarge": string;
 }
+
+export interface Foodlist {
+    "title": string,
+    "foodList": {
+        "title": string,
+        "description" : string,
+        "price": string
+    }[]
+}
+
+export interface Snacks {
+    "title": string,
+    "description": string;
+    "snacks": string[];
+}

@@ -1,0 +1,20 @@
+{
+    "title" : "PIZZA",
+    "foodList":[
+        {
+            "title": "FUEGO",
+            "description": "Pepperoni, parmesan, fresh chilli, parsley, chorizo & cheese",
+            "price": "$25"
+        },
+        {
+            "title": "LITTLE FISH",
+            "description": "Red onion, anchovies, olives, parmesan, chilli flakes, basil & cheese",
+            "price": "$25"
+        },
+        {
+            "title": "MARGHERITA",
+            "description": "Fresh tomato, basil & cheese",
+            "price": "$18"
+        }
+    ]
+}
