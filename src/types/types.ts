@@ -33,3 +33,11 @@ export interface Snacks {
     "description": string;
     "snacks": string[];
 }
+
+export interface ContactForm {
+    "firstName": string,
+    "lastName": string,
+    "email": string,
+    "phone": string,
+    "message": string
+}
