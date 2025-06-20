@@ -25,7 +25,7 @@ const navLinks = [
 export default function Sidebar({ expanded, setExpanded }: SidebarProps) {
   return (
     <div
-      className={`flex flex-col justify-start items-center align-middle bg-black h-screen overflow-hidden transition-all absolute z-2 text-white ${
+      className={`flex flex-col justify-start items-center align-middle bg-black overflow-x-hidden overflow-y-scroll h-screen transition-all z-999 absolute text-white ${
         expanded ? "w-full" : "w-0"
       }`}
     >

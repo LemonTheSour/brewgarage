@@ -71,14 +71,16 @@ export default function NavBar() {
     } else {
       return (
         // Return phone sized navbar
-        <div className="grid grid-cols-3 grid-rows-1 w-full bg-black h-8 text-white fixed z-50">
-          <button
-            onClick={() => setExpanded(!expanded)}
-            className="pl-3 grid col-span-1"
-          >
-            <Icon icon="pajamas:hamburger" width="30" height="30" />
-          </button>
-          <div className="justify-self-center">Brew Garage</div>
+        <div>
+          <div className="grid grid-cols-3 grid-rows-1 w-full bg-black h-8 text-white fixed z-50">
+            <button
+              onClick={() => setExpanded(!expanded)}
+              className="pl-3 grid col-span-1"
+            >
+              <Icon icon="pajamas:hamburger" width="30" height="30" />
+            </button>
+            <div className="justify-self-center">Brew Garage</div>
+          </div>
           <Sidebar expanded={expanded} setExpanded={() => setExpanded(false)} />
         </div>
       );
