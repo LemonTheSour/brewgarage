@@ -18,8 +18,8 @@ const navLinks = [
   { name: "Menu", href: "/menu" },
   { name: "Contact", href: "/contact" },
   { name: "About", href: "/about" },
-  { name: "Jobs", href: "/jobs" },
   { name: "Merch", href: "/merch" },
+  { name: "Jobs", href: "/jobs" },
 ];
 
 export default function NavBar() {
@@ -32,7 +32,7 @@ export default function NavBar() {
       return (
         <div className="flex flex-col">
           <Infobar />
-          <div className="flex items-end justify-between w-full absolute z-2 pt-4 text-white">
+          <div className="flex items-end justify-between w-full absolute z-2 pt-4 text-white z-99">
             <div
               className={`space-x-6 ml-4 lg:text-5xl mt-8 ml-16 ${khand.className}`}
             >

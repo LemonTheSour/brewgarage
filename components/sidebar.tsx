@@ -18,8 +18,8 @@ const navLinks = [
   { name: "Menu", href: "/menu" },
   { name: "Contact", href: "/contact" },
   { name: "About", href: "/about" },
-  { name: "Jobs", href: "/jobs" },
   { name: "Merch", href: "/merch" },
+  { name: "Jobs", href: "/jobs" },
 ];
 
 export default function Sidebar({ expanded, setExpanded }: SidebarProps) {
