@@ -9,10 +9,11 @@ export default function Merch() {
       <div className="w-full h-screen flex justify-center items-center">
         <div className="text-3xl text-white font-bold z-99">MERCH</div>
       </div>
-      <div className="flex flex-col items-center justify-center w-full pt-4">
+      <div className="flex flex-col items-center justify-center pt-4">
         <div className="font-bold text-3xl">FAVOURITES</div>
         <Carousel>
           {merch.FAVOURITES.map((card, index) => (
+            // <img key={index} src="images/Great_merch.jpg" />
             <MerchCard key={index} {...card} />
           ))}
         </Carousel>
