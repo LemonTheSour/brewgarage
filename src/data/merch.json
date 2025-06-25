@@ -1,0 +1,39 @@
+{
+    "FAVOURITES": [
+        {
+            "title": "CREWNECK T-SHIRT",
+            "price": "$99.99",
+            "img": "/image/url"
+        },
+        {
+            "title": "CREWNECK T-SHIRT",
+            "price": "$99.99",
+            "img": "/image/url"
+        },
+        {
+            "title": "CREWNECK T-SHIRT",
+            "price": "$99.99",
+            "img": "/image/url"
+        },
+        {
+            "title": "CREWNECK T-SHIRT",
+            "price": "$99.99",
+            "img": "/image/url"
+        },
+        {
+            "title": "CREWNECK T-SHIRT",
+            "price": "$99.99",
+            "img": "/image/url"
+        },
+        {
+            "title": "CREWNECK T-SHIRT",
+            "price": "$99.99",
+            "img": "/image/url"
+        },
+        {
+            "title": "CREWNECK T-SHIRT",
+            "price": "$99.99",
+            "img": "/image/url"
+        }
+    ]
+}

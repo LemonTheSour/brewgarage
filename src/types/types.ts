@@ -41,3 +41,9 @@ export interface ContactForm {
     "phone": string,
     "message": string
 }
+
+export interface MerchCardTypes {
+    "title": string,
+    "price": string,
+    "img": string
+}
