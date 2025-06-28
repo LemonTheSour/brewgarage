@@ -18,6 +18,16 @@ export default function Merch() {
           ))}
         </Carousel>
       </div>
+
+      <div className="grid grid-cols-3 items-center justify-center pt-4 mx-2">
+        <div className="col-span-3 justify-self-center font-bold text-3xl">
+          SHIRTS
+        </div>
+        {merch.FAVOURITES.map((card, index) => (
+          // <img key={index} src="images/Great_merch.jpg" />
+          <MerchCard key={index} {...card} />
+        ))}
+      </div>
     </>
   );
 }
