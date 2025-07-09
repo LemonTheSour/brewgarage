@@ -13,6 +13,6 @@
     },
     "Item4": {
         "background": "w-full h-125 bg-[url('/images/Great_merch.jpg')] bg-center bg-cover bg-no-repeat brightness-80 md:h-screen relative",
-        "title": "A Fourth Thing"
+        "title": "Mega Merch"
     }
 }
