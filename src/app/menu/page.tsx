@@ -10,7 +10,10 @@ import snacks from "@/data/snacks.json";
 export default function Menu() {
   return (
     <div>
-      <div className="bg-[url('../../public/images/nibbles.jpg')] md:bg-cover bg-no-repeat brightness-70 w-full h-screen"></div>
+      <div className="flex justify-center items-center">
+        <div className="bg-[url('../../public/images/nibbles.jpg')] bg-center md:bg-cover bg-no-repeat brightness-70 w-full h-screen relative"></div>
+        <div className="text-white font-bold text-3xl absolute">MENU</div>
+      </div>
       <div className="flex flex-col items-center w-full pt-4">
         <h1 className="text-3xl font-bold">DRINKS</h1>
         <div className="flex justify-center">
