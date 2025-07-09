@@ -26,17 +26,15 @@ export default function Sidebar({ expanded, setExpanded }: SidebarProps) {
   return (
     <div
       className={`flex flex-col justify-start items-center align-middle bg-black overflow-x-hidden overflow-y-scroll h-screen transition-all z-999 absolute text-white ${
-        expanded ? "w-full" : "w-0"
+        expanded ? "w-full fixed" : "w-0"
       }`}
     >
-      <button onClick={() => setExpanded()} className="self-end pr-2 absolute">
+      <button onClick={() => setExpanded()} className="self-end pr-2 fixed">
         <Icon icon="pajamas:hamburger" width="30" height="30" />
       </button>
 
-      <div></div>
-
       <div
-        className={`flex flex-col text-3xl lg:text-5xl mt-8 ml-2 pb-4 ${khand.className}`}
+        className={`flex flex-col text-3xl lg:text-5xl mt-8 ml-2 ${khand.className}`}
       >
         {navLinks.map((link) => {
           return (
@@ -52,7 +50,7 @@ export default function Sidebar({ expanded, setExpanded }: SidebarProps) {
         })}
       </div>
 
-      <div className="w-4/6 border-b-1 border-white pb-6" />
+      <div className="w-4/6 border-b-1 border-white pb-4" />
 
       <div className="flex space-x-8 pt-1 pt-6">
         <a className="hover:text-pink-600" href="www.youtube.com">
