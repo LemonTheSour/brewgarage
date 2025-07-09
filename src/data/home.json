@@ -1,0 +1,18 @@
+{
+    "Menu": {
+        "background": "w-full h-125 bg-[url('/images/Brew-Garage.png')] bg-center bg-cover bg-no-repeat brightness-80 md:h-screen relative",
+        "title": "Brew Garage"
+    },
+    "Item2": {
+        "background": "w-full h-125 bg-[url('/images/home_brew.jpg')] bg-center bg-cover bg-no-repeat brightness-80 md:h-screen relative",
+        "title": "Great Food"
+    },
+    "Item3": {
+        "background": "w-full h-125 bg-[url('/images/pizza.jpg')] bg-center bg-cover bg-no-repeat brightness-80 md:h-screen relative",
+        "title": "Best Beer"
+    },
+    "Item4": {
+        "background": "w-full h-125 bg-[url('/images/Great_merch.jpg')] bg-center bg-cover bg-no-repeat brightness-80 md:h-screen relative",
+        "title": "A Fourth Thing"
+    }
+}
