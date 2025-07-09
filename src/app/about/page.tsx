@@ -1,12 +1,12 @@
 import Image from "next/image";
+import TitleCard from "../../../components/titlecard";
+import TitleCards from "@/data/titlecards.json";
 
 export default function About() {
   return (
     <div>
-      <div className="flex justify-center items-center">
-        <div className="bg-[url('/images/wall.jpg')] bg-[right_top] md:bg-cover bg-no-repeat brightness-70 w-full h-screen relative"></div>
-        <div className="text-3xl text-white font-bold absolute">ABOUT</div>
-      </div>
+      <TitleCard {...TitleCards.about} />
+
       <div className="flex flex-col items-center justify-center pt-4">
         <div className="text-3xl col-span-2 font-bold">ABOUT US</div>
         <div className="grid grid-cols-2 gap-2 justify-center items-center w-5/6 pt-6">

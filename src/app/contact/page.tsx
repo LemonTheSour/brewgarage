@@ -1,6 +1,8 @@
 "use client";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { ContactForm } from "@/types/types";
+import TitleCard from "../../../components/titlecard";
+import TitleCards from "@/data/titlecards.json";
 
 export default function Contact() {
   const {
@@ -12,10 +14,7 @@ export default function Contact() {
 
   return (
     <div>
-      <div className="flex justify-center items-center">
-        <div className="bg-[url('../../public/images/contact.jpg')] md:bg-cover bg-no-repeat brightness-70 w-full h-screen relative"></div>
-        <div className="text-3xl font-bold text-white absolute">CONTACT</div>
-      </div>
+      <TitleCard {...TitleCards.contact} />
 
       <div className="flex flex-col justify-center items-center pt-4">
         <div className="font-bold text-3xl">SAY HELLO</div>

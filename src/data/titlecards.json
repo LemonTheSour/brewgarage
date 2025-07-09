@@ -1,0 +1,22 @@
+{
+    "about": {
+        "img": "bg-[url('../../public/images/contact.jpg')] bg-[right_top] bg-no-repeat",
+        "title": "ABOUT"
+    },
+    "contact": {
+        "img": "bg-[url('../../public/images/contact.jpg')] md:bg-cover bg-no-repeat",
+        "title": "CONTACT"
+    },
+    "jobs": {
+        "img": "bg-[url('../../public/images/the_crew.jpg')] bg-center md:bg-cover bg-no-repeat",
+        "title": "JOBS"
+    },
+    "menu": {
+        "img": "bg-[url('../../public/images/nibbles.jpg')] bg-center md:bg-cover bg-no-repeat",
+        "title": "MENU"
+    },
+    "merch": {
+        "img": "bg-[url('/images/merch2.jpg')] bg-center md:bg-cover bg-no-repeat",
+        "title": "MERCH"
+    }
+}

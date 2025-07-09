@@ -1,14 +1,13 @@
 import MerchCard from "../../../components/merchcard";
 import Carousel from "../../../components/carousel";
 import merch from "@/data/merch.json";
+import TitleCard from "../../../components/titlecard";
+import TitleCards from "@/data/titlecards.json";
 
 export default function Merch() {
   return (
     <>
-      <div className="flex justify-center items-center">
-        <div className="bg-[url('/images/merch2.jpg')] bg-center md:bg-cover bg-no-repeat brightness-70 w-full h-screen relative" />
-        <div className="text-3xl text-white font-bold z-99 absolute">MERCH</div>
-      </div>
+      <TitleCard {...TitleCards.merch} />
 
       <div className="flex flex-col items-center justify-center pt-4">
         <div className="font-bold text-3xl">FAVOURITES</div>
