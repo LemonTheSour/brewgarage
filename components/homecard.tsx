@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 interface HomeCardProps {
   title: string;
@@ -18,7 +19,16 @@ export default function HomeCard({ title, background, link }: HomeCardProps) {
               Find Out
             </button>
           </Link>
-        ) : null}
+        ) : (
+          <div className="pt-4">
+            <Image
+              src="/images/BrewGarage_Logo.png"
+              alt={"Test"}
+              width={100}
+              height={100}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
