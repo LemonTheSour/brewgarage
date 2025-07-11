@@ -11,9 +11,9 @@ export default function Home() {
   return (
     <div className="w-full">
       <HomeCard {...HomeCardTitles.Menu} />
-      <HomeCard {...HomeCardTitles.Item2} />
-      <HomeCard {...HomeCardTitles.Item3} />
-      <HomeCard {...HomeCardTitles.Item4} />
+      <HomeCard {...HomeCardTitles.Beer} />
+      <HomeCard {...HomeCardTitles.Food} />
+      <HomeCard {...HomeCardTitles.Merch} />
     </div>
   );
 }

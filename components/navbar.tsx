@@ -7,6 +7,7 @@ import { Icon } from "@iconify/react";
 import { useState } from "react";
 import Sidebar from "./sidebar";
 import Infobar from "./infobar";
+import Image from "next/image";
 
 const khand = Khand({
   subsets: ["latin"],
@@ -72,14 +73,21 @@ export default function NavBar() {
       return (
         // Return phone sized navbar
         <div>
-          <div className="grid grid-cols-3 grid-rows-1 w-full bg-black h-8 text-white fixed z-50">
+          <div className="grid grid-cols-3 grid-rows-1 w-full bg-black h-12 text-white fixed z-50">
             <button
               onClick={() => setExpanded(!expanded)}
-              className="pl-3 grid col-span-1"
+              className="pl-3 grid col-span-1 self-center"
             >
-              <Icon icon="pajamas:hamburger" width="30" height="30" />
+              <Icon icon="pajamas:hamburger" width="40" height="40" />
             </button>
-            <div className="justify-self-center">Brew Garage</div>
+            <div className="justify-self-center">
+              <Image
+                src="/images/BrewGarage_Logo.png"
+                alt={"Test"}
+                width={60}
+                height={60}
+              />
+            </div>
           </div>
           <Sidebar expanded={expanded} setExpanded={() => setExpanded(false)} />
         </div>

@@ -1,18 +1,22 @@
 {
     "Menu": {
         "background": "w-full h-125 bg-[url('/images/Brew-Garage.png')] bg-center bg-cover bg-no-repeat brightness-80 md:h-screen relative",
-        "title": "Brew Garage"
+        "title": "Brew Garage",
+        "link": "/about"
     },
-    "Item2": {
-        "background": "w-full h-125 bg-[url('/images/home_brew.jpg')] bg-center bg-cover bg-no-repeat brightness-80 md:h-screen relative",
-        "title": "Great Food"
-    },
-    "Item3": {
+    "Food": {
         "background": "w-full h-125 bg-[url('/images/pizza.jpg')] bg-center bg-cover bg-no-repeat brightness-80 md:h-screen relative",
-        "title": "Best Beer"
+        "title": "Great Food",
+        "link": "/menu"
     },
-    "Item4": {
+    "Beer": {
+        "background": "w-full h-125 bg-[url('/images/home_brew.jpg')] bg-center bg-cover bg-no-repeat brightness-80 md:h-screen relative",
+        "title": "Best Beer",
+        "link": "/menu"
+    },
+    "Merch": {
         "background": "w-full h-125 bg-[url('/images/Great_merch.jpg')] bg-center bg-cover bg-no-repeat brightness-80 md:h-screen relative",
-        "title": "Mega Merch"
+        "title": "Mega Merch",
+        "link": "/merch"
     }
 }
