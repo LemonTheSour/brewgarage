@@ -78,7 +78,7 @@ export default function NavBar() {
               onClick={() => setExpanded(!expanded)}
               className="pl-3 grid col-span-1 self-center"
             >
-              <Icon icon="pajamas:hamburger" width="40" height="40" />
+              <Icon icon="pajamas:hamburger" width="30" height="30" />
             </button>
             <div className="justify-self-center">
               <Image

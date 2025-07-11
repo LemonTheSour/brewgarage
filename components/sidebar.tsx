@@ -29,7 +29,10 @@ export default function Sidebar({ expanded, setExpanded }: SidebarProps) {
         expanded ? "w-full fixed" : "w-0"
       }`}
     >
-      <button onClick={() => setExpanded()} className="self-end pr-2 fixed">
+      <button
+        onClick={() => setExpanded()}
+        className="self-end pr-2 fixed h-12"
+      >
         <Icon icon="pajamas:hamburger" width="30" height="30" />
       </button>
 
