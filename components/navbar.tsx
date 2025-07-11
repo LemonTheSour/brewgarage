@@ -74,20 +74,20 @@ export default function NavBar() {
         // Return phone sized navbar
         <div>
           <div className="grid grid-cols-3 grid-rows-1 w-full bg-black h-12 text-white fixed z-50">
-            <button
-              onClick={() => setExpanded(!expanded)}
-              className="pl-3 grid col-span-1 self-center"
-            >
-              <Icon icon="pajamas:hamburger" width="30" height="30" />
-            </button>
-            <div className="justify-self-center">
+            <div className="flex col-start-2 items-center justify-center">
               <Image
                 src="/images/BrewGarage_Logo.png"
                 alt={"Test"}
-                width={60}
-                height={60}
+                width={50}
+                height={50}
               />
             </div>
+            <button
+              onClick={() => setExpanded(!expanded)}
+              className="pr-2 grid col-span-1 justify-self-end self-center"
+            >
+              <Icon icon="pajamas:hamburger" width="30" height="30" />
+            </button>
           </div>
           <Sidebar expanded={expanded} setExpanded={() => setExpanded(false)} />
         </div>
