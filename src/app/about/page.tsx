@@ -1,6 +1,7 @@
-import Image from "next/image";
 import TitleCard from "../../../components/titlecard";
 import TitleCards from "@/data/titlecards.json";
+import AboutCard from "../../../components/aboutcard";
+import AboutData from "@/data/about.json";
 
 export default function About() {
   return (
@@ -11,49 +12,14 @@ export default function About() {
         <div className="text-3xl col-span-2 font-bold">ABOUT US</div>
         <div className="grid grid-cols-2 gap-2 justify-center items-center w-5/6 pt-6">
           <div className="col-span-2">
-            <Image
-              src="/images/tanks-pour.jpg"
-              alt="Picture of beer being poured into tanks"
-              height={600}
-              width={300}
-            />
-          </div>
-          <div className="col-span-2 font-bold">Who Are We?</div>
-          <div className="col-span-2 text-xs">
-            Im just as intrigued now, if not more, with the craft of beer
-            brewing as I was at the age of 17 when the only way to get a frothy
-            was to make your own. Back then, I went down to the local brew shop,
-            bought my plastic fermenter, and away we went!  Many years of
-            brewing, good times, hangovers, and later a graduate diploma of
-            brewing, the beers have never tasted so good.
+            <AboutCard {...AboutData.Who} />
           </div>
           <div className="col-span-2">
-            <Image
-              src="/images/tanks-pour.jpg"
-              alt="Picture of beer being poured into tanks"
-              height={600}
-              width={300}
-            />
+            <AboutCard {...AboutData.What} />
           </div>
-          <div className="col-span-2 font-bold">What Are We?</div>
-          <div className="col-span-2 text-xs">
-            Passion, passion, passion. Cracking that perfect drop, perfecting
-            the recipes and recording everything, it’s not science unless you
-            write it down.  Some things like brewing require hands-on experience
-            to get the touch right. I guess that’s why we call it craft brewing:
-            it’s a craft and the whole process inspires me very much. 
-          </div>
-
           <div className="col-span-2">
-            <Image
-              src="/images/tanks-pour.jpg"
-              alt="Picture of beer being poured into tanks"
-              height={600}
-              width={300}
-            />
+            <AboutCard {...AboutData.How} />
           </div>
-          <div className="col-span-2 font-bold">How Are We?</div>
-          <div className="text-xs">Good thanks for asking</div>
         </div>
       </div>
     </div>

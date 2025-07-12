@@ -50,7 +50,7 @@ export default function Contact() {
           <textarea
             placeholder="Message"
             {...(register("message"), { required: true })}
-            className="border-solid border-1 p-1 rounded-sm drop-shadow-md m-2 min-h-20"
+            className="border-solid border-1 p-1 rounded-sm drop-shadow-xl m-2 min-h-20"
           />
           {errors.message && <span>This field is required</span>}
 
