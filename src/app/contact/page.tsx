@@ -32,32 +32,32 @@ export default function Contact() {
           <input
             placeholder="Last Name"
             {...register("lastName")}
-            className="border-solid border-1 p-1 rounded-sm drop-shadow-md m-2"
+            className="border-solid border-1 p-1 rounded-sm shadow-md m-2"
           />
 
           <input
             placeholder="Email"
             {...register("email")}
-            className="border-solid border-1 p-1 rounded-sm drop-shadow-md m-2"
+            className="border-solid border-1 p-1 rounded-sm shadow-md m-2"
           />
 
           <input
             placeholder="Phone"
             {...register("phone")}
-            className="border-solid border-1 p-1 rounded-sm drop-shadow-md m-2"
+            className="border-solid border-1 p-1 rounded-sm shadow-md m-2"
           />
 
           <textarea
             placeholder="Message"
             {...(register("message"), { required: true })}
-            className="border-solid border-1 p-1 rounded-sm drop-shadow-xl m-2 min-h-20"
+            className="border-solid border-1 p-1 rounded-sm shadow-md m-2 min-h-20"
           />
           {errors.message && <span>This field is required</span>}
 
           <input
             type="submit"
             value="Submit"
-            className="bg-black text-white w-2/5 h-10 rounded-sm drop-shadow-md m-2"
+            className="bg-black text-white w-2/5 h-10 rounded-sm shadow-md m-2"
           />
         </form>
         <div className="pt-4">
