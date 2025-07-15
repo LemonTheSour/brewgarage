@@ -1,7 +1,7 @@
 import TitleCard from "../../../components/titlecard";
-import TitleCards from "@/data/titlecards.json";
-import JobCard from "../../../components/jobcard";
+import JobCard from "../../../components/jobs/jobcard";
 import JobListings from "@/data/jobs.json";
+import TitleCards from "@/data/titlecards.json";
 
 export default function Jobs() {
   return (

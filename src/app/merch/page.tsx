@@ -1,15 +1,15 @@
-import MerchCard from "../../../components/merchcard";
-import Carousel from "../../../components/carousel";
-import merch from "@/data/merch.json";
+import MerchCard from "../../../components/merch/merchcard";
+import Carousel from "../../../components/merch/carousel";
 import TitleCard from "../../../components/titlecard";
 import TitleCards from "@/data/titlecards.json";
+import merch from "@/data/merch.json";
 
 export default function Merch() {
   return (
     <>
       <TitleCard {...TitleCards.merch} />
 
-      <div className="flex flex-col items-center justify-center pt-4">
+      <div className="flex flex-col items-center justify-center pt-4 pb-4">
         <div className="font-bold text-3xl">FAVOURITES</div>
         <Carousel>
           {merch.FAVOURITES.map((card, index) => (

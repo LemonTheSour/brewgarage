@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import HomeCard from "../../components/homecard";
+import HomeCard from "../../components/home/homecard";
 import HomeCardTitles from "@/data/home.json";
 
 export const metadata: Metadata = {

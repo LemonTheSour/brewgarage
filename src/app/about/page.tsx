@@ -1,7 +1,7 @@
 import TitleCard from "../../../components/titlecard";
-import TitleCards from "@/data/titlecards.json";
-import AboutCard from "../../../components/aboutcard";
+import AboutCard from "../../../components/about/aboutcard";
 import AboutData from "@/data/about.json";
+import TitleCards from "@/data/titlecards.json";
 
 export default function About() {
   return (

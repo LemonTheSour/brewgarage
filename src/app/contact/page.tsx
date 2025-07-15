@@ -1,7 +1,7 @@
 "use client";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { ContactForm } from "@/types/types";
 import TitleCard from "../../../components/titlecard";
+import { ContactForm } from "@/types/types";
 import TitleCards from "@/data/titlecards.json";
 
 export default function Contact() {
