@@ -8,9 +8,8 @@ export default function Jobs() {
     <div className="">
       <TitleCard {...TitleCards.jobs} />
       <div className="flex justify-center items-center flex-col w-full">
-        <div className="text-xl font-bold pt-4 pb-4">
-          0486 035 890 - INQUIRE
-        </div>
+        <div className="text-md pt-4 pb-4">0486 035 890 - INQUIRE</div>
+
         <JobCard
           title={JobListings["Bar Staff"].title}
           body={JobListings["Bar Staff"].body}
