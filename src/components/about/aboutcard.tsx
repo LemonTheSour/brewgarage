@@ -22,9 +22,6 @@ export default function AboutCard({
         />
       </div>
       <div>
-        <p className="font-display text-6xl leading-none font-bold text-brand/40" aria-hidden="true">
-          0{index + 1}
-        </p>
         <h3 className="font-display text-4xl leading-none font-bold uppercase md:text-5xl">{title}</h3>
         <p className="mt-4 text-lg leading-relaxed text-ink/80">{body}</p>
       </div>
