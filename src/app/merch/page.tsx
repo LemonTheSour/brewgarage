@@ -11,15 +11,15 @@ export const metadata: Metadata = { title: "Merch" };
 export default function Merch() {
   return (
     <>
-      <Hero {...heroes.merch} priority />
-      <Section title="FAVOURITES" wide>
+      <Hero {...heroes.merch} eyebrow="Wear the Garage" />
+      <Section title="Favourites" eyebrow="Best sellers" width="wide">
         <Carousel>
           {merch.favourites.map((item, i) => (
             <MerchCard key={i} {...item} />
           ))}
         </Carousel>
       </Section>
-      <Section title="SHIRTS" wide className="pt-0">
+      <Section title="Shirts" eyebrow="The full range" width="wide" tone="paper">
         <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {merch.shirts.map((item, i) => (
             <li key={i}>

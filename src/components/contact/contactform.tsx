@@ -3,10 +3,12 @@
 import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import type { ContactFormValues } from "@/types/types";
+import { btnDark } from "@/lib/ui";
 
 const field =
-  "w-full rounded-sm border border-neutral-400 p-2 text-base shadow-sm focus:border-black focus:outline-none focus:ring-2 focus:ring-black/20";
+  "w-full rounded-sm border border-ink/25 bg-paper px-3 py-2.5 text-base focus:border-ink focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand/60";
 const errorText = "mt-1 text-sm text-red-700";
+const labelCls = "mb-1 block text-sm font-semibold uppercase tracking-wide";
 
 export default function ContactForm() {
   const [sent, setSent] = useState(false);
@@ -17,7 +19,7 @@ export default function ContactForm() {
     formState: { errors, isSubmitting },
   } = useForm<ContactFormValues>();
 
-  // TODO: send to an email service / API route. For now we just confirm.
+  // Demo only for now. TODO: send via EmailJS (emailjs.send) once the client confirms.
   const onSubmit: SubmitHandler<ContactFormValues> = async () => {
     setSent(true);
     reset();
@@ -25,9 +27,9 @@ export default function ContactForm() {
 
   if (sent) {
     return (
-      <div role="status" className="rounded-md bg-neutral-100 p-6 text-center">
-        <p className="text-lg font-bold">Thanks, we&apos;ll be in touch soon!</p>
-        <button type="button" onClick={() => setSent(false)} className="mt-3 underline">
+      <div role="status" className="rounded-sm border-l-4 border-brand bg-paper p-8">
+        <p className="font-display text-3xl font-bold uppercase">Thanks, we&apos;ll be in touch soon!</p>
+        <button type="button" onClick={() => setSent(false)} className="mt-3 underline underline-offset-4">
           Send another message
         </button>
       </div>
@@ -37,10 +39,9 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="grid gap-4 sm:grid-cols-2">
       <div>
-        <label htmlFor="firstName" className="sr-only">First name</label>
+        <label htmlFor="firstName" className={labelCls}>First name *</label>
         <input
           id="firstName"
-          placeholder="First Name *"
           autoComplete="given-name"
           aria-invalid={!!errors.firstName}
           {...register("firstName", { required: "Please enter your first name" })}
@@ -50,10 +51,9 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="lastName" className="sr-only">Last name</label>
+        <label htmlFor="lastName" className={labelCls}>Last name</label>
         <input
           id="lastName"
-          placeholder="Last Name"
           autoComplete="family-name"
           {...register("lastName")}
           className={field}
@@ -61,12 +61,11 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="email" className="sr-only">Email</label>
+        <label htmlFor="email" className={labelCls}>Email *</label>
         <input
           id="email"
           type="email"
           inputMode="email"
-          placeholder="Email *"
           autoComplete="email"
           aria-invalid={!!errors.email}
           {...register("email", {
@@ -79,12 +78,11 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="phone" className="sr-only">Phone</label>
+        <label htmlFor="phone" className={labelCls}>Phone</label>
         <input
           id="phone"
           type="tel"
           inputMode="tel"
-          placeholder="Phone"
           autoComplete="tel"
           {...register("phone")}
           className={field}
@@ -92,11 +90,10 @@ export default function ContactForm() {
       </div>
 
       <div className="sm:col-span-2">
-        <label htmlFor="message" className="sr-only">Message</label>
+        <label htmlFor="message" className={labelCls}>Message *</label>
         <textarea
           id="message"
-          placeholder="Message *"
-          rows={5}
+          rows={6}
           aria-invalid={!!errors.message}
           {...register("message", { required: "Please enter a message" })}
           className={field}
@@ -107,7 +104,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="h-11 w-full rounded-sm bg-black font-bold text-white shadow-md transition-colors hover:bg-neutral-800 disabled:opacity-60 sm:w-40"
+        className={`${btnDark} w-full disabled:opacity-60 sm:w-48`}
       >
         Submit
       </button>

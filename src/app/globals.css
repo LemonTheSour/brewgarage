@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* Design tokens: use as font-display, bg-brand, text-brand, bg-ink, etc. */
+@theme {
+  --font-display: var(--font-khand), ui-sans-serif, system-ui, sans-serif;
+  --color-brand: #f0a531; /* amber, like a pint held up to the light */
+  --color-brand-dark: #c97f12;
+  --color-ink: #0e0e0e;
+  --color-paper: #f6f4f0;
+}
+
 html {
   /* Stop iOS/Android enlarging text when the phone is rotated. */
   -webkit-text-size-adjust: 100%;
@@ -13,7 +22,7 @@ html {
   }
 }
 
-/* Hide the scrollbar on the merch carousel while keeping it scrollable. */
+/* Hide the scrollbar on horizontal scrollers while keeping them scrollable. */
 .no-scrollbar {
   scrollbar-width: none;
 }

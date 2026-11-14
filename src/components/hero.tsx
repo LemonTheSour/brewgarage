@@ -4,39 +4,52 @@ import type { ReactNode } from "react";
 interface HeroProps {
   image: string;
   title: string;
+  /** Small amber line above the title. */
+  eyebrow?: string;
   /** CSS object-position, e.g. "center" or "right top". */
   position?: string;
-  /** Use for the first hero on a page so it loads immediately. */
-  priority?: boolean;
-  /** Render the title as the page's <h1> (default) or an <h2>. */
-  as?: "h1" | "h2";
+  /** "full" fills the screen (home page); "page" is shorter (inner pages). */
+  size?: "full" | "page";
   children?: ReactNode;
 }
 
-// Full-bleed photo with a centred title. Replaces TitleCard and HomeCard,
-// which built Tailwind class names from JSON (fragile, and unoptimised CSS
-// background images). next/image serves resized WebP/AVIF per device.
+// Full-bleed photo with a big condensed title. Always the first thing on a
+// page, so the image is loaded with priority.
 export default function Hero({
   image,
   title,
+  eyebrow,
   position = "center",
-  priority = false,
-  as: Heading = "h1",
+  size = "page",
   children,
 }: HeroProps) {
+  const height =
+    size === "full"
+      ? "h-[calc(100vh-3rem)] min-h-[32rem] md:h-[calc(100vh-2rem)]"
+      : "h-[55vh] min-h-80 md:h-[70vh]";
+
   return (
-    <section className="relative flex h-[70vh] min-h-80 items-center justify-center overflow-hidden bg-neutral-800 md:h-[calc(100vh-2rem)]">
+    <section
+      className={`relative flex items-center justify-center overflow-hidden bg-ink ${height}`}
+    >
       <Image
         src={image}
         alt=""
         fill
-        priority={priority}
+        priority
         sizes="100vw"
-        className="object-cover brightness-75"
+        className="object-cover"
         style={{ objectPosition: position }}
       />
-      <div className="relative flex flex-col items-center px-4 text-center text-white">
-        <Heading className="text-4xl font-bold drop-shadow md:text-6xl">{title}</Heading>
+      {/* Darken top (behind the desktop nav) and bottom for legible text. */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/70" />
+
+      <div className="relative flex flex-col items-center px-6 pt-10 text-center text-white md:pt-24">
+        {eyebrow && <p className="font-display text-lg uppercase tracking-[0.3em] text-brand md:text-xl">{eyebrow}</p>}
+        <h1 className="font-display text-6xl leading-none font-bold uppercase tracking-wide drop-shadow-lg md:text-8xl lg:text-9xl">
+          {title}
+        </h1>
+        <span className="mt-4 block h-1 w-16 bg-brand" aria-hidden="true" />
         {children}
       </div>
     </section>

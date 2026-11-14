@@ -10,11 +10,11 @@ export const metadata: Metadata = { title: "About" };
 export default function About() {
   return (
     <>
-      <Hero {...heroes.about} priority />
-      <Section title="ABOUT US" wide>
-        <div className="grid gap-6 lg:grid-cols-3">
-          {about.map((card) => (
-            <AboutCard key={card.title} {...card} />
+      <Hero {...heroes.about} eyebrow="Our story" />
+      <Section title="About us" eyebrow="The people behind the pints" width="wide">
+        <div className="space-y-16 md:space-y-24">
+          {about.map((card, i) => (
+            <AboutCard key={card.title} {...card} index={i} />
           ))}
         </div>
       </Section>

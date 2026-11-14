@@ -3,9 +3,10 @@
 
 export const site = {
   name: "Brew Garage",
-  description:
-    "Craft brewery, wine and wood-fired pizza in East Victoria Park.",
+  tagline: "Craft beer · Wine · Pizza",
+  description: "Neighbourhood craft brewery in East Victoria Park, WA.",
   address: "20 Millford St, East Vic Park",
+  mapsQuery: "Brew Garage, 20 Millford St, East Victoria Park WA",
   phone: "0486 035 890",
   hours: [
     { day: "Thursday", time: "4 – 10pm" },
@@ -19,6 +20,8 @@ export const site = {
     email: "",
   },
 } as const;
+
+export const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.mapsQuery)}`;
 
 export const phoneHref = `tel:${site.phone.replace(/\s+/g, "")}`;
 

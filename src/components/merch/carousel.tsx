@@ -20,7 +20,7 @@ export default function Carousel({ children }: { children: ReactNode[] }) {
   };
 
   const btn =
-    "absolute top-1/3 z-10 rounded-full bg-white/90 p-1 shadow-md transition hover:bg-white";
+    "absolute top-1/3 z-10 rounded-full bg-ink/80 p-1 text-white shadow-md transition hover:bg-brand hover:text-ink";
 
   return (
     <div className="relative">

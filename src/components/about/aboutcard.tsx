@@ -1,20 +1,33 @@
 import Image from "next/image";
 import type { AboutItem } from "@/types/types";
 
-export default function AboutCard({ img, imgAlt, title, body }: AboutItem) {
+// Photo + story row. On wider screens the photo alternates sides.
+export default function AboutCard({
+  img,
+  imgAlt,
+  title,
+  body,
+  index,
+}: AboutItem & { index: number }) {
+  const flip = index % 2 === 1;
   return (
-    <article className="overflow-hidden rounded-md bg-white shadow-md">
-      <div className="relative aspect-[4/3]">
+    <article className="grid items-center gap-6 md:grid-cols-2 md:gap-12">
+      <div className={`relative aspect-[4/3] overflow-hidden rounded-sm ${flip ? "md:order-2" : ""}`}>
         <Image
           src={img}
           alt={imgAlt}
           fill
-          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 80vw, 100vw"
+          sizes="(min-width: 768px) 50vw, 100vw"
           className="object-cover"
         />
       </div>
-      <h3 className="p-4 pb-2 text-2xl font-bold">{title}</h3>
-      <p className="p-4 pt-0">{body}</p>
+      <div>
+        <p className="font-display text-6xl leading-none font-bold text-brand/40" aria-hidden="true">
+          0{index + 1}
+        </p>
+        <h3 className="font-display text-4xl leading-none font-bold uppercase md:text-5xl">{title}</h3>
+        <p className="mt-4 text-lg leading-relaxed text-ink/80">{body}</p>
+      </div>
     </article>
   );
 }

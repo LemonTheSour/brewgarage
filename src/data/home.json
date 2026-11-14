@@ -1,6 +1,10 @@
-[
-  { "title": "Brew Garage", "image": "/images/Brew-Garage.png", "showLogo": true },
-  { "title": "Best Beer", "image": "/images/home_brew.jpg", "link": "/menu" },
-  { "title": "Great Food", "image": "/images/pizza.jpg", "link": "/menu" },
-  { "title": "Mega Merch", "image": "/images/Great_merch.jpg", "link": "/merch" }
-]
+{
+  "hero": { "title": "Brew Garage", "image": "/images/Brew-Garage.png" },
+  "intro": "A neighbourhood brewery in East Vic Park. Beer brewed on site by people who've been doing it since they were 17, plus wine, pizza and good company.",
+  "features": [
+    { "title": "Best Beer", "blurb": "Brewed right here, poured fresh from the tanks.", "image": "/images/home_brew.jpg", "link": "/menu#beer" },
+    { "title": "Great Food", "blurb": "Pizzas and snacks made to go with a pint.", "image": "/images/pizza.jpg", "link": "/menu#food" },
+    { "title": "Mega Merch", "blurb": "Tees and caps to take a bit of the Garage home.", "image": "/images/Great_merch.jpg", "link": "/merch" }
+  ],
+  "visit": { "image": "/images/outdoors.jpg" }
+}
