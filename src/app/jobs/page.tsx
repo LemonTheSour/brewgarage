@@ -1,16 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Hero from "@/components/hero";
-import Section from "@/components/section";
-import JobCard from "@/components/jobs/jobcard";
+import Hero from "@/components/ui/hero";
+import Section from "@/components/ui/section";
+import JobCard from "@/components/jobs/job-card";
 import jobs from "@/data/jobs.json";
-import heroes from "@/data/titlecards.json";
+import heroes from "@/data/page-heroes.json";
 import { phoneHref, site } from "@/lib/site";
-import { btnDark } from "@/lib/ui";
+import { btnDark, btnOutlineDark } from "@/lib/styles";
 
-export const metadata: Metadata = { title: "Jobs" };
+export const metadata: Metadata = {
+  title: "Jobs",
+  description: "Join the Brew Garage crew: bar staff, kitchen staff and duty manager roles.",
+};
 
-export default function Jobs() {
+export default function JobsPage() {
   return (
     <>
       <Hero {...heroes.jobs} eyebrow="Join the crew" />
@@ -28,7 +31,7 @@ export default function Jobs() {
             </a>
             <Link
               href="/contact"
-              className="inline-flex h-12 items-center justify-center rounded-sm border-2 border-ink px-6 font-display text-xl font-semibold uppercase tracking-wider transition-colors hover:bg-ink hover:text-white"
+              className={btnOutlineDark}
             >
               Send a message
             </Link>

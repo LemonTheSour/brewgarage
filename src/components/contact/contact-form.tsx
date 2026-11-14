@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
-import type { ContactFormValues } from "@/types/types";
-import { btnDark } from "@/lib/ui";
+import type { ContactFormValues } from "@/types/content";
+import { btnDark } from "@/lib/styles";
 
 const field =
   "w-full rounded-sm border border-ink/25 bg-paper px-3 py-2.5 text-base focus:border-ink focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand/60";
@@ -37,17 +37,28 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate className="grid gap-4 sm:grid-cols-2">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      noValidate
+      aria-label="Contact Brew Garage"
+      className="grid gap-4 sm:grid-cols-2"
+    >
       <div>
         <label htmlFor="firstName" className={labelCls}>First name *</label>
         <input
           id="firstName"
           autoComplete="given-name"
           aria-invalid={!!errors.firstName}
+          aria-required="true"
+          aria-describedby={errors.firstName ? "firstName-error" : undefined}
           {...register("firstName", { required: "Please enter your first name" })}
           className={field}
         />
-        {errors.firstName && <p className={errorText}>{errors.firstName.message}</p>}
+        {errors.firstName && (
+          <p id="firstName-error" role="alert" className={errorText}>
+            {errors.firstName.message}
+          </p>
+        )}
       </div>
 
       <div>
@@ -68,13 +79,19 @@ export default function ContactForm() {
           inputMode="email"
           autoComplete="email"
           aria-invalid={!!errors.email}
+          aria-required="true"
+          aria-describedby={errors.email ? "email-error" : undefined}
           {...register("email", {
             required: "Please enter your email",
             pattern: { value: /^\S+@\S+\.\S+$/, message: "Please enter a valid email" },
           })}
           className={field}
         />
-        {errors.email && <p className={errorText}>{errors.email.message}</p>}
+        {errors.email && (
+          <p id="email-error" role="alert" className={errorText}>
+            {errors.email.message}
+          </p>
+        )}
       </div>
 
       <div>
@@ -95,10 +112,16 @@ export default function ContactForm() {
           id="message"
           rows={6}
           aria-invalid={!!errors.message}
+          aria-required="true"
+          aria-describedby={errors.message ? "message-error" : undefined}
           {...register("message", { required: "Please enter a message" })}
           className={field}
         />
-        {errors.message && <p className={errorText}>{errors.message.message}</p>}
+        {errors.message && (
+          <p id="message-error" role="alert" className={errorText}>
+            {errors.message.message}
+          </p>
+        )}
       </div>
 
       <button
@@ -106,8 +129,9 @@ export default function ContactForm() {
         disabled={isSubmitting}
         className={`${btnDark} w-full disabled:opacity-60 sm:w-48`}
       >
-        Submit
+        Send message
       </button>
+      <p className="self-center text-sm text-ink/60 sm:col-span-1">* Required</p>
     </form>
   );
 }

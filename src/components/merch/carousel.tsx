@@ -1,9 +1,10 @@
 "use client";
 
 import { useRef, type ReactNode } from "react";
-import { ChevronLeftIcon, ChevronRightIcon } from "../icons";
+import { ChevronLeftIcon, ChevronRightIcon } from "@/components/ui/icons";
 
-export default function Carousel({ children }: { children: ReactNode[] }) {
+// Swipeable row of cards with previous/next buttons. Wraps around at either end.
+export default function Carousel({ label, children }: { label: string; children: ReactNode[] }) {
   const track = useRef<HTMLUListElement>(null);
 
   const scroll = (dir: -1 | 1) => {
@@ -20,7 +21,7 @@ export default function Carousel({ children }: { children: ReactNode[] }) {
     "absolute top-1/3 z-10 rounded-full bg-ink/80 p-1 text-white shadow-md transition hover:bg-brand hover:text-ink";
 
   return (
-    <div className="relative">
+    <div role="region" aria-roledescription="carousel" aria-label={label} className="relative">
       <ul
         ref={track}
         className="no-scrollbar flex snap-x snap-mandatory scroll-px-1 gap-4 overflow-x-auto px-1 py-2"
@@ -34,10 +35,10 @@ export default function Carousel({ children }: { children: ReactNode[] }) {
           </li>
         ))}
       </ul>
-      <button type="button" onClick={() => scroll(-1)} aria-label="Previous" className={`${btn} -left-2`}>
+      <button type="button" onClick={() => scroll(-1)} aria-label="Previous items" className={`${btn} -left-2`}>
         <ChevronLeftIcon size={28} />
       </button>
-      <button type="button" onClick={() => scroll(1)} aria-label="Next" className={`${btn} -right-2`}>
+      <button type="button" onClick={() => scroll(1)} aria-label="Next items" className={`${btn} -right-2`}>
         <ChevronRightIcon size={28} />
       </button>
     </div>
