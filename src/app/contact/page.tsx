@@ -1,81 +1,41 @@
-"use client";
-import { SubmitHandler, useForm } from "react-hook-form";
-import TitleCard from "../../../components/titlecard";
-import { ContactForm } from "@/types/types";
-import TitleCards from "@/data/titlecards.json";
+import type { Metadata } from "next";
+import Hero from "@/components/hero";
+import Section from "@/components/section";
+import Socials from "@/components/socials";
+import ContactForm from "@/components/contact/contactform";
+import heroes from "@/data/titlecards.json";
+import { phoneHref, site } from "@/lib/site";
+
+export const metadata: Metadata = { title: "Contact" };
 
 export default function Contact() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<ContactForm>();
-  const onSubmit: SubmitHandler<ContactForm> = (data) => console.log(data);
-
   return (
-    <div>
-      <TitleCard {...TitleCards.contact} />
+    <>
+      <Hero {...heroes.contact} priority />
+      <Section title="SAY HELLO">
+        <ContactForm />
+      </Section>
 
-      <div className="flex flex-col justify-center items-center pt-4">
-        <div className="font-bold text-3xl">SAY HELLO</div>
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col w-5/6 pt-4"
-        >
-          <input
-            placeholder="First Name"
-            {...(register("firstName"), { required: true })}
-            className="border-solid border-1 p-1 p-1 rounded-sm m-2"
-          />
-          {errors.firstName && <span>This field is required</span>}
-
-          <input
-            placeholder="Last Name"
-            {...register("lastName")}
-            className="border-solid border-1 p-1 rounded-sm shadow-md m-2"
-          />
-
-          <input
-            placeholder="Email"
-            {...register("email")}
-            className="border-solid border-1 p-1 rounded-sm shadow-md m-2"
-          />
-
-          <input
-            placeholder="Phone"
-            {...register("phone")}
-            className="border-solid border-1 p-1 rounded-sm shadow-md m-2"
-          />
-
-          <textarea
-            placeholder="Message"
-            {...(register("message"), { required: true })}
-            className="border-solid border-1 p-1 rounded-sm shadow-md m-2 min-h-20"
-          />
-          {errors.message && <span>This field is required</span>}
-
-          <input
-            type="submit"
-            value="Submit"
-            className="bg-black text-white w-2/5 h-10 rounded-sm shadow-md m-2"
-          />
-        </form>
-        <div className="pt-4">
-          <div className="font-bold text-2xl">OPERATING HOURS</div>
-          <div className="font-bold">Thursday 4 - 10pm</div>
-          <div className="font-bold">Friday 1 - 10pm</div>
-          <div className="font-bold">Saturday 12-10pm</div>
+      <Section className="grid gap-10 pt-0 text-center sm:grid-cols-2">
+        <div>
+          <h2 className="mb-3 text-2xl font-bold">OPERATING HOURS</h2>
+          <dl className="font-bold">
+            {site.hours.map(({ day, time }) => (
+              <div key={day}>
+                <dt className="inline">{day} </dt>
+                <dd className="inline">{time}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
-
-        <div className="grid grid-cols-3 gap-x-2 pt-4 pb-8">
-          <div className="grid col-span-3 justify-self-center font-bold text-2xl">
-            SOCIALS
-          </div>
-          <div className="font-bold">Instagram</div>
-          <div className="font-bold">Facebook</div>
-          <div className="font-bold">0486 035 890</div>
+        <div>
+          <h2 className="mb-3 text-2xl font-bold">SOCIALS</h2>
+          <Socials size={32} className="justify-center" />
+          <a href={phoneHref} className="mt-3 block font-bold hover:underline">
+            {site.phone}
+          </a>
         </div>
-      </div>
-    </div>
+      </Section>
+    </>
   );
 }

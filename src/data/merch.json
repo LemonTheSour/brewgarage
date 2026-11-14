@@ -1,39 +1,71 @@
 {
-    "FAVOURITES": [
-        {
-            "title": "CREWNECK T-SHIRT",
-            "price": "$99.99",
-            "img": "/image/url"
-        },
-        {
-            "title": "CREWNECK T-SHIRT",
-            "price": "$99.99",
-            "img": "/image/url"
-        },
-        {
-            "title": "CREWNECK T-SHIRT",
-            "price": "$99.99",
-            "img": "/image/url"
-        },
-        {
-            "title": "CREWNECK T-SHIRT",
-            "price": "$99.99",
-            "img": "/image/url"
-        },
-        {
-            "title": "CREWNECK T-SHIRT",
-            "price": "$99.99",
-            "img": "/image/url"
-        },
-        {
-            "title": "CREWNECK T-SHIRT",
-            "price": "$99.99",
-            "img": "/image/url"
-        },
-        {
-            "title": "CREWNECK T-SHIRT",
-            "price": "$99.99",
-            "img": "/image/url"
-        }
-    ]
+  "favourites": [
+    {
+      "title": "CREWNECK T-SHIRT",
+      "price": "$99.99",
+      "img": "/images/Great_merch.jpg"
+    },
+    {
+      "title": "CREWNECK T-SHIRT",
+      "price": "$99.99",
+      "img": "/images/Merch2.jpg"
+    },
+    {
+      "title": "CREWNECK T-SHIRT",
+      "price": "$99.99",
+      "img": "/images/Great_merch.jpg"
+    },
+    {
+      "title": "CREWNECK T-SHIRT",
+      "price": "$99.99",
+      "img": "/images/Merch2.jpg"
+    },
+    {
+      "title": "CREWNECK T-SHIRT",
+      "price": "$99.99",
+      "img": "/images/Great_merch.jpg"
+    },
+    {
+      "title": "CREWNECK T-SHIRT",
+      "price": "$99.99",
+      "img": "/images/Merch2.jpg"
+    },
+    {
+      "title": "CREWNECK T-SHIRT",
+      "price": "$99.99",
+      "img": "/images/Great_merch.jpg"
+    }
+  ],
+  "shirts": [
+    {
+      "title": "CREWNECK T-SHIRT",
+      "price": "$99.99",
+      "img": "/images/Great_merch.jpg"
+    },
+    {
+      "title": "CREWNECK T-SHIRT",
+      "price": "$99.99",
+      "img": "/images/Merch2.jpg"
+    },
+    {
+      "title": "CREWNECK T-SHIRT",
+      "price": "$99.99",
+      "img": "/images/Great_merch.jpg"
+    },
+    {
+      "title": "CREWNECK T-SHIRT",
+      "price": "$99.99",
+      "img": "/images/Merch2.jpg"
+    },
+    {
+      "title": "CREWNECK T-SHIRT",
+      "price": "$99.99",
+      "img": "/images/Great_merch.jpg"
+    },
+    {
+      "title": "CREWNECK T-SHIRT",
+      "price": "$99.99",
+      "img": "/images/Merch2.jpg"
+    }
+  ]
 }

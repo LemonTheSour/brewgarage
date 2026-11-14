@@ -1,27 +1,23 @@
-import TitleCard from "../../../components/titlecard";
-import AboutCard from "../../../components/about/aboutcard";
-import AboutData from "@/data/about.json";
-import TitleCards from "@/data/titlecards.json";
+import type { Metadata } from "next";
+import Hero from "@/components/hero";
+import Section from "@/components/section";
+import AboutCard from "@/components/about/aboutcard";
+import about from "@/data/about.json";
+import heroes from "@/data/titlecards.json";
+
+export const metadata: Metadata = { title: "About" };
 
 export default function About() {
   return (
-    <div>
-      <TitleCard {...TitleCards.about} />
-
-      <div className="flex flex-col items-center justify-center pt-4">
-        <div className="text-3xl col-span-2 font-bold">ABOUT US</div>
-        <div className="grid grid-cols-2 gap-2 justify-center items-center w-5/6 pt-6">
-          <div className="col-span-2">
-            <AboutCard {...AboutData.Who} />
-          </div>
-          <div className="col-span-2">
-            <AboutCard {...AboutData.What} />
-          </div>
-          <div className="col-span-2">
-            <AboutCard {...AboutData.How} />
-          </div>
+    <>
+      <Hero {...heroes.about} priority />
+      <Section title="ABOUT US" wide>
+        <div className="grid gap-6 lg:grid-cols-3">
+          {about.map((card) => (
+            <AboutCard key={card.title} {...card} />
+          ))}
         </div>
-      </div>
-    </div>
+      </Section>
+    </>
   );
 }

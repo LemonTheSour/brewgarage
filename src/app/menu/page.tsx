@@ -1,38 +1,31 @@
-import Pricelist from "../../../components/menu/pricelist";
-import FoodList from "../../../components/menu/foodlist";
-import Snacklist from "../../../components/menu/snacklist";
-import TitleCard from "../../../components/titlecard";
-import TitleCards from "@/data/titlecards.json";
+import type { Metadata } from "next";
+import Hero from "@/components/hero";
+import Section from "@/components/section";
+import Pricelist from "@/components/menu/pricelist";
+import FoodList from "@/components/menu/foodlist";
+import Snacklist from "@/components/menu/snacklist";
+import heroes from "@/data/titlecards.json";
 import beer from "@/data/beer.json";
 import redwine from "@/data/redwine.json";
 import whitewine from "@/data/whitewine.json";
 import food from "@/data/food.json";
 import snacks from "@/data/snacks.json";
 
+export const metadata: Metadata = { title: "Menu" };
+
 export default function Menu() {
   return (
-    <div>
-      <TitleCard {...TitleCards.menu} />
-
-      <div className="flex flex-col items-center w-full pt-4">
-        <h1 className="text-3xl font-bold">DRINKS</h1>
-        <div className="flex justify-center">
-          <Pricelist pricelist={beer} />
-        </div>
-        <div className="flex justify-center">
-          <Pricelist pricelist={redwine} />
-        </div>
-        <div className="flex justify-center">
-          <Pricelist pricelist={whitewine} />
-        </div>
-        <h1 className="text-3xl font-bold pt-4">FOOD</h1>
-        <div className="flex justify-center">
-          <FoodList foodlist={food} />
-        </div>
-        <div className="flex justify-center">
-          <Snacklist snacklist={snacks} />
-        </div>
-      </div>
-    </div>
+    <>
+      <Hero {...heroes.menu} priority />
+      <Section title="DRINKS">
+        {[beer, redwine, whitewine].map((list) => (
+          <Pricelist key={list.title} pricelist={list} />
+        ))}
+      </Section>
+      <Section title="FOOD" className="pt-0">
+        <FoodList foodlist={food} />
+        <Snacklist snacklist={snacks} />
+      </Section>
+    </>
   );
 }

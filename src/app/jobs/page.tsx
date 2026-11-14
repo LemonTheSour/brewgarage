@@ -1,28 +1,28 @@
-import TitleCard from "../../../components/titlecard";
-import JobCard from "../../../components/jobs/jobcard";
-import JobListings from "@/data/jobs.json";
-import TitleCards from "@/data/titlecards.json";
+import type { Metadata } from "next";
+import Hero from "@/components/hero";
+import Section from "@/components/section";
+import JobCard from "@/components/jobs/jobcard";
+import jobs from "@/data/jobs.json";
+import heroes from "@/data/titlecards.json";
+import { phoneHref, site } from "@/lib/site";
+
+export const metadata: Metadata = { title: "Jobs" };
 
 export default function Jobs() {
   return (
-    <div className="">
-      <TitleCard {...TitleCards.jobs} />
-      <div className="flex justify-center items-center flex-col w-full">
-        <div className="text-md pt-4 pb-4">0486 035 890 - INQUIRE</div>
-
-        <JobCard
-          title={JobListings["Bar Staff"].title}
-          body={JobListings["Bar Staff"].body}
-        />
-        <JobCard
-          title={JobListings["Kitchen Staff"].title}
-          body={JobListings["Kitchen Staff"].body}
-        />
-        <JobCard
-          title={JobListings["Duty Manager"].title}
-          body={JobListings["Duty Manager"].body}
-        />
-      </div>
-    </div>
+    <>
+      <Hero {...heroes.jobs} priority />
+      <Section>
+        <p className="mb-6 text-center">
+          <a href={phoneHref} className="font-bold hover:underline">
+            {site.phone}
+          </a>{" "}
+          – INQUIRE
+        </p>
+        {jobs.map((job) => (
+          <JobCard key={job.title} {...job} />
+        ))}
+      </Section>
+    </>
   );
 }
