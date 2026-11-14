@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getImage } from "@/lib/images";
 import type { ReactNode } from "react";
 
 interface HeroProps {
@@ -33,7 +34,8 @@ export default function Hero({
       className={`relative flex items-center justify-center overflow-hidden bg-ink ${height}`}
     >
       <Image
-        src={image}
+        src={getImage(image)}
+        placeholder="blur"
         alt=""
         fill
         priority
