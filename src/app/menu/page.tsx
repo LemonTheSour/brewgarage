@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Hero from "@/components/ui/hero";
 import Section from "@/components/ui/section";
 import JumpNav from "@/components/menu/jump-nav";
@@ -12,10 +13,11 @@ import whiteWine from "@/data/white-wine.json";
 import food from "@/data/food.json";
 import snacks from "@/data/snacks.json";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Menu",
   description: "Craft beer, red and white wine, pizza and snacks at Brew Garage.",
-};
+  path: "/menu",
+});
 
 const sections = [
   { label: "Beer", href: "#beer" },

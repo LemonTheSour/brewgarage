@@ -20,6 +20,17 @@ folder so the two do not clash:
 NEXT_DIST_DIR=.next-verify yarn build && NEXT_DIST_DIR=.next-verify yarn start -p 3123
 ```
 
+## Going live
+
+Set `NEXT_PUBLIC_SITE_URL` (e.g. `https://brewgarage.com.au`) in Vercel's
+environment variables once the domain is connected, then redeploy. It's used for
+canonical URLs, the sitemap, robots.txt, share previews and structured data.
+Until it's set, Vercel's production URL is used. Preview deployments are kept
+out of search engines automatically.
+
+Icons live in `src/app` (`favicon.ico`, `icon.png`, `apple-icon.png`) and
+`public/icons`; the share image is `public/og-image.jpg` (1200×630).
+
 ## Demoing on a laptop and a phone
 
 The site is fully responsive, so the same URL works on both.

@@ -4,18 +4,23 @@ import "./globals.css";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import HeroPreloader from "@/components/layout/hero-preloader";
-import { site } from "@/lib/site";
+import { site, siteUrl } from "@/lib/site";
+import { pageMetadata } from "@/lib/metadata";
+import StructuredData from "@/components/layout/structured-data";
 import { khand } from "@/lib/fonts";
 
 export const metadata: Metadata = {
+  // Makes canonical URLs and share-image links absolute.
+  metadataBase: siteUrl,
+  ...pageMetadata({ description: site.description, path: "/" }),
   title: { default: site.name, template: `%s | ${site.name}` },
-  description: site.description,
+  applicationName: site.name,
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#000000",
+  themeColor: "#0e0e0e",
 };
 
 export default function RootLayout({
@@ -38,6 +43,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <HeroPreloader />
+        <StructuredData />
       </body>
     </html>
   );

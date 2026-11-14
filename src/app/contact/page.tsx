@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Hero from "@/components/ui/hero";
 import Section, { SectionTitle } from "@/components/ui/section";
 import ContactForm from "@/components/contact/contact-form";
 import ContactInfo from "@/components/contact/contact-info";
 import heroes from "@/data/page-heroes.json";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Contact",
   description: "Get in touch with Brew Garage for bookings, events and questions.",
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

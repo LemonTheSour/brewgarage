@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Hero from "@/components/ui/hero";
 import Section from "@/components/ui/section";
 import AboutCard from "@/components/about/about-card";
 import about from "@/data/about.json";
 import heroes from "@/data/page-heroes.json";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "About",
   description: "The story and people behind Brew Garage, a craft brewery in East Victoria Park.",
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

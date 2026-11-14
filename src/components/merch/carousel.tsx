@@ -10,11 +10,14 @@ export default function Carousel({ label, children }: { label: string; children:
   const scroll = (dir: -1 | 1) => {
     const el = track.current;
     if (!el) return;
+    const behavior: ScrollBehavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ? "auto"
+      : "smooth";
     const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 4;
     const atStart = el.scrollLeft <= 4;
-    if (dir === 1 && atEnd) el.scrollTo({ left: 0, behavior: "smooth" });
-    else if (dir === -1 && atStart) el.scrollTo({ left: el.scrollWidth, behavior: "smooth" });
-    else el.scrollBy({ left: dir * el.clientWidth, behavior: "smooth" });
+    if (dir === 1 && atEnd) el.scrollTo({ left: 0, behavior });
+    else if (dir === -1 && atStart) el.scrollTo({ left: el.scrollWidth, behavior });
+    else el.scrollBy({ left: dir * el.clientWidth, behavior });
   };
 
   const btn =

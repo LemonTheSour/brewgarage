@@ -8,8 +8,8 @@ export default function DrinkList({ menu, id }: { menu: DrinkMenu; id?: string }
     <div id={id} className="mb-12 scroll-mt-32 last:mb-0 md:scroll-mt-20">
       <div className={`${columns} items-end border-b-2 border-ink pb-2`}>
         <h3 className="font-display text-3xl leading-none font-bold uppercase">{menu.title}</h3>
-        <span className="text-center text-xs font-semibold uppercase tracking-wide text-ink/60">{menu.size1}</span>
-        <span className="text-center text-xs font-semibold uppercase tracking-wide text-ink/60">{menu.size2}</span>
+        <span className="text-center text-xs font-semibold uppercase tracking-wide text-ink/70">{menu.size1}</span>
+        <span className="text-center text-xs font-semibold uppercase tracking-wide text-ink/70">{menu.size2}</span>
       </div>
       <ul className="divide-y divide-ink/10">
         {menu.itemList.map((item, i) => (

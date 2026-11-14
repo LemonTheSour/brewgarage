@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Hero from "@/components/ui/hero";
 import Section from "@/components/ui/section";
 import Carousel from "@/components/merch/carousel";
@@ -6,10 +7,11 @@ import MerchCard from "@/components/merch/merch-card";
 import heroes from "@/data/page-heroes.json";
 import merch from "@/data/merch.json";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Merch",
   description: "Brew Garage tees, caps and more.",
-};
+  path: "/merch",
+});
 
 export default function MerchPage() {
   return (

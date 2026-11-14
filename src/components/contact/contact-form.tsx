@@ -131,7 +131,7 @@ export default function ContactForm() {
       >
         Send message
       </button>
-      <p className="self-center text-sm text-ink/60 sm:col-span-1">* Required</p>
+      <p className="self-center text-sm text-ink/70 sm:col-span-1">* Required</p>
     </form>
   );
 }

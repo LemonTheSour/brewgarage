@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import Hero from "@/components/ui/hero";
 import Section from "@/components/ui/section";
@@ -8,10 +9,11 @@ import heroes from "@/data/page-heroes.json";
 import { phoneHref, site } from "@/lib/site";
 import { btnDark, btnOutlineDark } from "@/lib/styles";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Jobs",
   description: "Join the Brew Garage crew: bar staff, kitchen staff and duty manager roles.",
-};
+  path: "/jobs",
+});
 
 export default function JobsPage() {
   return (
