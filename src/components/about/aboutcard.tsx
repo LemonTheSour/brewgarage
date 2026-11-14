@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getImage } from "@/lib/images";
 import type { AboutItem } from "@/types/types";
 
 // Photo + story row. On wider screens the photo alternates sides.
@@ -14,7 +15,8 @@ export default function AboutCard({
     <article className="grid items-center gap-6 md:grid-cols-2 md:gap-12">
       <div className={`relative aspect-[4/3] overflow-hidden rounded-sm ${flip ? "md:order-2" : ""}`}>
         <Image
-          src={img}
+          src={getImage(img)}
+          placeholder="blur"
           alt={imgAlt}
           fill
           sizes="(min-width: 768px) 50vw, 100vw"

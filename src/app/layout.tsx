@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import HeroPreloader from "@/components/hero-preloader";
 import { site } from "@/lib/site";
 import { khand } from "@/lib/fonts";
 
@@ -26,6 +27,7 @@ export default function RootLayout({
         {/* Phone header is fixed (48px), so push content below it. */}
         <main className="flex-1 pt-12 md:pt-0">{children}</main>
         <Footer />
+        <HeroPreloader />
       </body>
     </html>
   );

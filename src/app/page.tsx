@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getImage } from "@/lib/images";
 import Link from "next/link";
 import Hero from "@/components/hero";
 import Section, { SectionTitle } from "@/components/section";
@@ -48,7 +49,8 @@ export default function Home() {
                 className="group relative flex aspect-[4/3] items-end overflow-hidden rounded-sm bg-ink md:aspect-[3/4]"
               >
                 <Image
-                  src={f.image}
+                  src={getImage(f.image)}
+                  placeholder="blur"
                   alt=""
                   fill
                   sizes="(min-width: 768px) 33vw, 100vw"
@@ -73,7 +75,8 @@ export default function Home() {
         <div className="grid items-center gap-10 md:grid-cols-2">
           <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
             <Image
-              src={home.visit.image}
+              src={getImage(home.visit.image)}
+              placeholder="blur"
               alt="The Brew Garage beer garden"
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
