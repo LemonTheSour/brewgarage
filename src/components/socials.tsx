@@ -6,22 +6,24 @@ const links = [
     label: "Instagram",
     href: site.socials.instagram,
     Icon: InstagramIcon,
-    hover: "hover:text-pink-500",
+    hover: "hover:text-[#E1306C]",
   },
   {
     label: "Facebook",
     href: site.socials.facebook,
     Icon: FacebookIcon,
-    hover: "hover:text-blue-500",
+    hover: "hover:text-[#1877F2]",
   },
   {
     label: "Email",
     href: site.socials.email ? `mailto:${site.socials.email}` : "",
     Icon: MailIcon,
-    hover: "hover:text-lime-400",
+    hover: "hover:text-brand",
   },
 ];
 
+// Hover colours apply whether or not a link is set yet, so the icons
+// stay interactive-looking in the demo before real URLs are added.
 export default function Socials({
   size = 32,
   className = "",
@@ -44,7 +46,7 @@ export default function Socials({
               <Icon size={size} />
             </a>
           ) : (
-            <span title={label} className="block">
+            <span title={label} className={`block transition-colors ${hover}`}>
               <Icon size={size} />
             </span>
           )}

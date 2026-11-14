@@ -3,9 +3,6 @@
 import { useRef, type ReactNode } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "../icons";
 
-// Native scroll-snap carousel: swipeable on touch screens, arrow buttons for
-// mouse users, and the number of visible cards adapts to screen width.
-// (The old version hard-coded a 33% shift and could scroll past the end.)
 export default function Carousel({ children }: { children: ReactNode[] }) {
   const track = useRef<HTMLUListElement>(null);
 
