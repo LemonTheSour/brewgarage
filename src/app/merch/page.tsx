@@ -1,19 +1,22 @@
 import type { Metadata } from "next";
-import Hero from "@/components/hero";
-import Section from "@/components/section";
+import Hero from "@/components/ui/hero";
+import Section from "@/components/ui/section";
 import Carousel from "@/components/merch/carousel";
-import MerchCard from "@/components/merch/merchcard";
-import heroes from "@/data/titlecards.json";
+import MerchCard from "@/components/merch/merch-card";
+import heroes from "@/data/page-heroes.json";
 import merch from "@/data/merch.json";
 
-export const metadata: Metadata = { title: "Merch" };
+export const metadata: Metadata = {
+  title: "Merch",
+  description: "Brew Garage tees, caps and more.",
+};
 
-export default function Merch() {
+export default function MerchPage() {
   return (
     <>
       <Hero {...heroes.merch} eyebrow="Wear the Garage" />
       <Section title="Favourites" eyebrow="Best sellers" width="wide">
-        <Carousel>
+        <Carousel label="Favourite merch">
           {merch.favourites.map((item, i) => (
             <MerchCard key={i} {...item} />
           ))}

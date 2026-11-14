@@ -1,13 +1,13 @@
 import Image from "next/image";
 import { getImage } from "@/lib/images";
-import type { MerchItem } from "@/types/types";
+import type { MerchItem } from "@/types/content";
 
-export default function MerchCard({ title, price, img }: MerchItem) {
+export default function MerchCard({ title, price, image }: MerchItem) {
   return (
     <article className="group h-full overflow-hidden rounded-sm bg-white shadow-sm">
       <div className="relative aspect-[3/4]">
         <Image
-          src={getImage(img)}
+          src={getImage(image)}
           placeholder="blur"
           alt={title}
           fill

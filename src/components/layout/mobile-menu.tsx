@@ -3,25 +3,54 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import { isActivePath, navLinks, phoneHref, site } from "@/lib/site";
-import { CloseIcon, MenuIcon, PhoneIcon, PinIcon } from "./icons";
-import Socials from "./socials";
+import { useEffect, useRef, useState } from "react";
+import { isActivePath, navLinks } from "@/lib/navigation";
+import { phoneHref, site } from "@/lib/site";
+import { CloseIcon, MenuIcon, PhoneIcon, PinIcon } from "@/components/ui/icons";
+import Socials from "@/components/ui/socials";
 
-// One header for every screen size. Which layout shows is decided by CSS
-// breakpoints (md = 768px), so it renders on the server, never flashes, and
-// adapts live when the window is resized or a phone is rotated.
-export default function Header() {
+// Phone header bar (logo + menu button) and the full-screen menu it opens.
+// Hidden from the md breakpoint (768px) up, where DesktopNav takes over.
+export default function MobileMenu() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const openButton = useRef<HTMLButtonElement>(null);
+  const closeButton = useRef<HTMLButtonElement>(null);
+  const dialog = useRef<HTMLDivElement>(null);
+  const wasOpen = useRef(false);
 
-  // Close the drawer whenever the route changes.
+  // Close whenever the page changes.
   useEffect(() => setOpen(false), [pathname]);
 
-  // While the drawer is open: lock page scroll and close on Escape.
+  // Move keyboard focus into the menu when it opens, and back to the menu
+  // button when it closes, so keyboard and screen-reader users don't get lost.
+  useEffect(() => {
+    if (open) closeButton.current?.focus();
+    else if (wasOpen.current) openButton.current?.focus();
+    wasOpen.current = open;
+  }, [open]);
+
+  // While open: stop the page behind from scrolling, close on Escape, and
+  // keep Tab / Shift+Tab inside the menu (wrapping at either end), as the
+  // W3C modal dialog pattern requires.
   useEffect(() => {
     if (!open) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") return setOpen(false);
+      if (e.key !== "Tab" || !dialog.current) return;
+      const focusable = dialog.current.querySelectorAll<HTMLElement>("a[href], button:not([disabled])");
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement;
+      if (e.shiftKey && (active === first || !dialog.current.contains(active))) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && (active === last || !dialog.current.contains(active))) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKey);
     return () => {
@@ -31,45 +60,8 @@ export default function Header() {
   }, [open]);
 
   return (
-    <header>
-      {/* ---------- Desktop / tablet ---------- */}
-      <div className="hidden md:block">
-        <div className="flex h-8 items-center justify-center gap-12 bg-ink text-sm tracking-wide text-white">
-          <span>{site.address}</span>
-          <a href={phoneHref} className="hover:underline">
-            {site.phone}
-          </a>
-        </div>
-        <nav
-          aria-label="Main"
-          className="absolute inset-x-0 top-8 z-40 flex items-end justify-between px-8 pt-6 text-white lg:px-16"
-        >
-          <ul className="flex gap-4 font-display text-3xl uppercase tracking-wide lg:gap-6 lg:text-4xl">
-            {navLinks.map((link) => {
-              const active = isActivePath(pathname, link.href);
-              return (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    aria-current={active ? "page" : undefined}
-                    className={`border-b-4 px-1 pb-1 drop-shadow transition-colors ${
-                      active
-                        ? "border-brand font-semibold"
-                        : "border-transparent hover:border-white/70"
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-          <Socials size={30} className="drop-shadow lg:gap-6" />
-        </nav>
-      </div>
-
-      {/* ---------- Phone ---------- */}
-      <div className="fixed inset-x-0 top-0 z-50 flex h-12 items-center justify-center bg-ink text-white md:hidden">
+    <div className="md:hidden">
+      <div className="fixed inset-x-0 top-0 z-50 flex h-12 items-center justify-center bg-ink text-white">
         <Link href="/" aria-label={`${site.name} home`}>
           <Image
             src="/images/BrewGarage_Logo.png"
@@ -81,6 +73,7 @@ export default function Header() {
           />
         </Link>
         <button
+          ref={openButton}
           type="button"
           onClick={() => setOpen(true)}
           aria-label="Open menu"
@@ -93,16 +86,18 @@ export default function Header() {
       </div>
 
       <div
+        ref={dialog}
         id="mobile-menu"
         role="dialog"
         aria-modal="true"
         aria-label="Menu"
         inert={!open}
-        className={`fixed inset-0 z-[60] flex flex-col items-center overflow-y-auto bg-ink pb-10 text-white transition-transform duration-300 md:hidden ${
+        className={`fixed inset-0 z-[60] flex flex-col items-center overflow-y-auto bg-ink pb-10 text-white transition-transform duration-300 ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <button
+          ref={closeButton}
           type="button"
           onClick={() => setOpen(false)}
           aria-label="Close menu"
@@ -111,7 +106,7 @@ export default function Header() {
           <CloseIcon size={30} />
         </button>
 
-        <nav aria-label="Mobile">
+        <nav aria-label="Site">
           <ul className="flex flex-col items-center gap-3 font-display text-5xl uppercase tracking-wide">
             {navLinks.map((link) => {
               const active = isActivePath(pathname, link.href);
@@ -137,13 +132,13 @@ export default function Header() {
 
         <address className="flex flex-col gap-4 text-lg not-italic">
           <span className="flex items-center gap-2">
-            <PinIcon size={28} /> {site.address}
+            <PinIcon size={28} className="shrink-0" /> {site.address}
           </span>
           <a href={phoneHref} className="flex items-center gap-2">
-            <PhoneIcon size={28} /> {site.phone}
+            <PhoneIcon size={28} className="shrink-0" /> {site.phone}
           </a>
         </address>
       </div>
-    </header>
+    </div>
   );
 }

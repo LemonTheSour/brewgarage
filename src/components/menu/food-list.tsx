@@ -1,13 +1,13 @@
-import type { FoodList as FoodListData } from "@/types/types";
+import type { FoodMenu } from "@/types/content";
 
-export default function FoodList({ foodlist }: { foodlist: FoodListData }) {
+export default function FoodList({ menu }: { menu: FoodMenu }) {
   return (
     <div className="mb-12">
       <h3 className="border-b-2 border-ink pb-2 font-display text-3xl leading-none font-bold uppercase">
-        {foodlist.title}
+        {menu.title}
       </h3>
       <ul className="divide-y divide-ink/10">
-        {foodlist.foodList.map((item) => (
+        {menu.foodList.map((item) => (
           <li key={item.title} className="flex justify-between gap-6 py-4">
             <div>
               <p className="font-semibold uppercase tracking-wide">{item.title}</p>

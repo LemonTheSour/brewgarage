@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Hero from "@/components/hero";
-import { btnPrimary } from "@/lib/ui";
+import Hero from "@/components/ui/hero";
+import { btnPrimary } from "@/lib/styles";
 
 export default function NotFound() {
   return (

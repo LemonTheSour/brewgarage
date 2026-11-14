@@ -1,5 +1,5 @@
-// Single source of truth for business details shown across the site.
-// Fill in the social/email links below and every page picks them up.
+// Business details shown across the site: name, address, hours, contacts.
+// Edit them here and every page picks them up. Navigation is in navigation.ts.
 
 export const site = {
   name: "Brew Garage",
@@ -24,16 +24,3 @@ export const site = {
 export const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.mapsQuery)}`;
 
 export const phoneHref = `tel:${site.phone.replace(/\s+/g, "")}`;
-
-export const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "Menu", href: "/menu" },
-  { name: "Contact", href: "/contact" },
-  { name: "About", href: "/about" },
-  { name: "Merch", href: "/merch" },
-  { name: "Jobs", href: "/jobs" },
-] as const;
-
-export function isActivePath(pathname: string, href: string) {
-  return href === "/" ? pathname === "/" : pathname.startsWith(href);
-}

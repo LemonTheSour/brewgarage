@@ -1,7 +1,7 @@
 import { getImageProps } from "next/image";
 import { getImage } from "@/lib/images";
 import home from "@/data/home.json";
-import heroes from "@/data/titlecards.json";
+import heroes from "@/data/page-heroes.json";
 import PreloadImages from "./preload-images";
 
 // Warms the browser cache with every page's hero photo, so moving between
