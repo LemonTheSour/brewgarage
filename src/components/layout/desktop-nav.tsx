@@ -12,7 +12,7 @@ export default function DesktopNav() {
 
   return (
     <nav
-      aria-label="Main"
+      aria-label="Site"
       className="absolute inset-x-0 top-8 z-40 hidden items-end justify-between px-8 pt-6 text-white md:flex lg:px-16"
     >
       <ul className="flex gap-4 font-display text-3xl uppercase tracking-wide lg:gap-6 lg:text-4xl">

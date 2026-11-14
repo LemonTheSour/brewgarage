@@ -16,6 +16,7 @@ export default function MobileMenu() {
   const [open, setOpen] = useState(false);
   const openButton = useRef<HTMLButtonElement>(null);
   const closeButton = useRef<HTMLButtonElement>(null);
+  const dialog = useRef<HTMLDivElement>(null);
   const wasOpen = useRef(false);
 
   // Close whenever the page changes.
@@ -29,10 +30,27 @@ export default function MobileMenu() {
     wasOpen.current = open;
   }, [open]);
 
-  // While open: stop the page behind from scrolling, and close on Escape.
+  // While open: stop the page behind from scrolling, close on Escape, and
+  // keep Tab / Shift+Tab inside the menu (wrapping at either end), as the
+  // W3C modal dialog pattern requires.
   useEffect(() => {
     if (!open) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") return setOpen(false);
+      if (e.key !== "Tab" || !dialog.current) return;
+      const focusable = dialog.current.querySelectorAll<HTMLElement>("a[href], button:not([disabled])");
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement;
+      if (e.shiftKey && (active === first || !dialog.current.contains(active))) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && (active === last || !dialog.current.contains(active))) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKey);
     return () => {
@@ -68,6 +86,7 @@ export default function MobileMenu() {
       </div>
 
       <div
+        ref={dialog}
         id="mobile-menu"
         role="dialog"
         aria-modal="true"
@@ -87,7 +106,7 @@ export default function MobileMenu() {
           <CloseIcon size={30} />
         </button>
 
-        <nav aria-label="Mobile">
+        <nav aria-label="Site">
           <ul className="flex flex-col items-center gap-3 font-display text-5xl uppercase tracking-wide">
             {navLinks.map((link) => {
               const active = isActivePath(pathname, link.href);

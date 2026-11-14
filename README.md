@@ -57,6 +57,9 @@ Conventions: file names are kebab-case (`drink-list.tsx`), components are
 PascalCase (`DrinkList`), and data fields are camelCase. Colours and fonts are
 design tokens in `src/app/globals.css` (`bg-brand`, `text-ink`, `font-display`).
 
+Why it is structured this way, with links to the official guidance behind each
+decision: [docs/architecture.md](docs/architecture.md).
+
 Most content edits only need a change in `src/data/*.json` or `src/lib/site.ts`.
 A new photo goes in `public/images` **and** `src/lib/images.ts`.
 

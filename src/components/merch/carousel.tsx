@@ -29,6 +29,9 @@ export default function Carousel({ label, children }: { label: string; children:
         {children.map((child, i) => (
           <li
             key={i}
+            role="group"
+            aria-roledescription="slide"
+            aria-label={`${i + 1} of ${children.length}`}
             className="w-[calc((100%-1rem)/2)] shrink-0 snap-start sm:w-[calc((100%-2rem)/3)] lg:w-[calc((100%-3rem)/4)]"
           >
             {child}
