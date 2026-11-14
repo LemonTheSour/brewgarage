@@ -1,81 +1,55 @@
-"use client";
-import { SubmitHandler, useForm } from "react-hook-form";
-import TitleCard from "../../../components/titlecard";
-import { ContactForm } from "@/types/types";
-import TitleCards from "@/data/titlecards.json";
+import type { Metadata } from "next";
+import Hero from "@/components/hero";
+import Section, { SectionTitle } from "@/components/section";
+import Socials from "@/components/socials";
+import Hours from "@/components/hours";
+import ContactForm from "@/components/contact/contactform";
+import { PhoneIcon, PinIcon } from "@/components/icons";
+import heroes from "@/data/titlecards.json";
+import { mapsHref, phoneHref, site } from "@/lib/site";
+import { btnPrimary } from "@/lib/ui";
+
+export const metadata: Metadata = { title: "Contact" };
+
+const label = "mb-3 font-display text-xl uppercase tracking-[0.2em] text-brand";
 
 export default function Contact() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<ContactForm>();
-  const onSubmit: SubmitHandler<ContactForm> = (data) => console.log(data);
-
   return (
-    <div>
-      <TitleCard {...TitleCards.contact} />
-
-      <div className="flex flex-col justify-center items-center pt-4">
-        <div className="font-bold text-3xl">SAY HELLO</div>
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col w-5/6 pt-4"
-        >
-          <input
-            placeholder="First Name"
-            {...(register("firstName"), { required: true })}
-            className="border-solid border-1 p-1 p-1 rounded-sm m-2"
-          />
-          {errors.firstName && <span>This field is required</span>}
-
-          <input
-            placeholder="Last Name"
-            {...register("lastName")}
-            className="border-solid border-1 p-1 rounded-sm shadow-md m-2"
-          />
-
-          <input
-            placeholder="Email"
-            {...register("email")}
-            className="border-solid border-1 p-1 rounded-sm shadow-md m-2"
-          />
-
-          <input
-            placeholder="Phone"
-            {...register("phone")}
-            className="border-solid border-1 p-1 rounded-sm shadow-md m-2"
-          />
-
-          <textarea
-            placeholder="Message"
-            {...(register("message"), { required: true })}
-            className="border-solid border-1 p-1 rounded-sm shadow-md m-2 min-h-20"
-          />
-          {errors.message && <span>This field is required</span>}
-
-          <input
-            type="submit"
-            value="Submit"
-            className="bg-black text-white w-2/5 h-10 rounded-sm shadow-md m-2"
-          />
-        </form>
-        <div className="pt-4">
-          <div className="font-bold text-2xl">OPERATING HOURS</div>
-          <div className="font-bold">Thursday 4 - 10pm</div>
-          <div className="font-bold">Friday 1 - 10pm</div>
-          <div className="font-bold">Saturday 12-10pm</div>
-        </div>
-
-        <div className="grid grid-cols-3 gap-x-2 pt-4 pb-8">
-          <div className="grid col-span-3 justify-self-center font-bold text-2xl">
-            SOCIALS
+    <>
+      <Hero {...heroes.contact} eyebrow="Get in touch" />
+      <Section width="wide">
+        <div className="grid gap-12 lg:grid-cols-[3fr_2fr]">
+          <div>
+            <SectionTitle eyebrow="Bookings, events, questions" align="left">
+              Say hello
+            </SectionTitle>
+            <ContactForm />
           </div>
-          <div className="font-bold">Instagram</div>
-          <div className="font-bold">Facebook</div>
-          <div className="font-bold">0486 035 890</div>
+
+          <aside className="h-fit space-y-8 rounded-sm bg-ink p-8 text-white">
+            <div>
+              <h2 className={label}>Opening hours</h2>
+              <Hours className="max-w-64 text-lg" />
+            </div>
+            <div>
+              <h2 className={label}>Find us</h2>
+              <p className="flex items-center gap-3">
+                <PinIcon size={22} className="shrink-0 text-brand" /> {site.address}
+              </p>
+              <a href={phoneHref} className="mt-2 flex items-center gap-3 hover:text-brand">
+                <PhoneIcon size={22} className="shrink-0 text-brand" /> {site.phone}
+              </a>
+              <a href={mapsHref} target="_blank" rel="noopener noreferrer" className={`${btnPrimary} mt-6 w-full`}>
+                Get directions
+              </a>
+            </div>
+            <div>
+              <h2 className={label}>Follow along</h2>
+              <Socials size={30} />
+            </div>
+          </aside>
         </div>
-      </div>
-    </div>
+      </Section>
+    </>
   );
 }

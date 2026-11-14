@@ -1,33 +1,33 @@
-import MerchCard from "../../../components/merch/merchcard";
-import Carousel from "../../../components/merch/carousel";
-import TitleCard from "../../../components/titlecard";
-import TitleCards from "@/data/titlecards.json";
+import type { Metadata } from "next";
+import Hero from "@/components/hero";
+import Section from "@/components/section";
+import Carousel from "@/components/merch/carousel";
+import MerchCard from "@/components/merch/merchcard";
+import heroes from "@/data/titlecards.json";
 import merch from "@/data/merch.json";
+
+export const metadata: Metadata = { title: "Merch" };
 
 export default function Merch() {
   return (
     <>
-      <TitleCard {...TitleCards.merch} />
-
-      <div className="flex flex-col items-center justify-center pt-4 pb-4">
-        <div className="font-bold text-3xl">FAVOURITES</div>
+      <Hero {...heroes.merch} eyebrow="Wear the Garage" />
+      <Section title="Favourites" eyebrow="Best sellers" width="wide">
         <Carousel>
-          {merch.FAVOURITES.map((card, index) => (
-            // <img key={index} src="images/Great_merch.jpg" />
-            <MerchCard key={index} {...card} />
+          {merch.favourites.map((item, i) => (
+            <MerchCard key={i} {...item} />
           ))}
         </Carousel>
-      </div>
-
-      <div className="grid grid-cols-3 items-center justify-center pt-4 mx-2">
-        <div className="col-span-3 justify-self-center font-bold text-3xl">
-          SHIRTS
-        </div>
-        {merch.FAVOURITES.map((card, index) => (
-          // <img key={index} src="images/Great_merch.jpg" />
-          <MerchCard key={index} {...card} />
-        ))}
-      </div>
+      </Section>
+      <Section title="Shirts" eyebrow="The full range" width="wide" tone="paper">
+        <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+          {merch.shirts.map((item, i) => (
+            <li key={i}>
+              <MerchCard {...item} />
+            </li>
+          ))}
+        </ul>
+      </Section>
     </>
   );
 }
